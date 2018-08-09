@@ -86,3 +86,7 @@ button {
 #resetButton:hover {
     background: #d6392f;
 }
+
+#time-taken {
+    text-align: center;
+}

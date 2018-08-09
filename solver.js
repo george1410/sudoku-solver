@@ -34,6 +34,8 @@ function reset() {
         }
     }
 
+    document.querySelector('#time-taken').textContent = '';
+
     board = new Array(9);
     mask = new Array(9);
     for (i = 0; i < board.length; i++) {
@@ -65,6 +67,7 @@ document.querySelector('#solveButton').onclick = () => {
 }
 
 function solve() {
+    let v0 = performance.now();
     while (pos < 81) {
         if (mask[xpos][ypos] == 0) {
             board[xpos][ypos]++;
@@ -80,6 +83,9 @@ function solve() {
             nextPos();
         }
     }
+    let v1 = performance.now();
+
+    document.querySelector('#time-taken').textContent = 'Time Taken: ' + (v1-v0)/1000 + 's';
 
     fillUI();
 }
