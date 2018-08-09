@@ -15,6 +15,15 @@ function reset() {
         for (j = 0; j < 9; j++) {
             let el = document.createElement('div');
             el.appendChild(document.createElement('input'));
+            el.firstChild.setAttribute('inputmode', 'numeric');
+            el.firstChild.setAttribute('maxlength', '1');
+            
+            el.oninput = (e) => {
+                if (isNaN(e.target.value) || e.target.value == '0') {
+                    e.target.value = '';
+                }
+            }
+
             if (i == 2 || i == 5) {
                 el.classList.add('border-bottom');
             }
@@ -143,3 +152,5 @@ function fillUI() {
         count++;
     }
 }
+
+document.querySelectorAll
