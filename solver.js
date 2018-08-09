@@ -1,8 +1,6 @@
 const container = document.querySelector('.grid-container');
 var board, mask;
-var pos = 0;
-var xpos = 0;
-var ypos = 0;
+var pos, xpos, ypos;
 
 reset();
 
@@ -10,6 +8,8 @@ function reset() {
     while(container.firstChild) {
         container.removeChild(container.firstChild);
     }
+
+    pos = xpos = ypos = 0;
     
     for (i = 0; i < 9; i++) {
         for (j = 0; j < 9; j++) {
@@ -131,11 +131,14 @@ function isValid() {
 function fillUI() {
     let count = 0;
     let node = container.firstChild;
-    node.firstChild.setAttribute('disabled', 'true');
     while(node) {
+        node.firstChild.setAttribute('disabled', 'true');
         let x = Math.floor(count/9);
         let y = count % 9;
-        node.firstChild.value = board[x][y]
+        node.firstChild.value = board[x][y];
+        if (mask[x][y] == 0) {
+            node.firstChild.classList.add('calculated-value');
+        }
         node = node.nextSibling;
         count++;
     }

@@ -1,9 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500');
+
+body {
+    font-family: Montserrat, sans-serif;
+}
+
+h1 {
+    color: #0392cf;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
 .grid-container {
+    margin: auto;
     display: grid;
     width: 400px;
     height: 400px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.row {
+    width: 500px;
+}
+
+.calculated-value {
+    color: #0392cf;
 }
 
 input { 
@@ -28,4 +54,35 @@ input:focus {
 
 .grid-container div {
     box-sizing: border-box;
+}
+
+.button-area {
+    text-align: center;
+    margin-top: 15px;
+}
+
+button {
+    padding: 12px 35px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 0.35rem;
+    cursor: pointer;
+    color: #ffffff;
+    letter-spacing: 0.03rem;
+}
+
+#solveButton {
+    background: #7bc043;
+}
+
+#solveButton:hover {
+    background: #6eac3c;
+}
+
+#resetButton {
+    background: #ee4035;
+}
+
+#resetButton:hover {
+    background: #d6392f;
 }
